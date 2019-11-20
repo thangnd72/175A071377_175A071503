@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+header {
+    position: relative;
+}
+/* style for top-header */
+.top-header {
+    background: linear-gradient(90deg, rgba(73,72,80,1) 0%, rgba(11,12,200,0.7511379551820728) 0%, rgba(159,54,166,0.7819502801120448) 100%);
+    padding: 0.8rem;
+    
+}
+#left-top-header ul {
+    display: flex;
+}
+#left-top-header ul li {
+    display: inline-block;
+    padding: 0 1.4rem;
+}
+#left-top-header ul li a, #left-top-header ul li i {
+    font-size: 1.4rem;
+    color: #FFF;
+}
+#left-top-header ul li i {
+    padding: 0 0.5rem;
+    color: #6b82b3;
+}
+#left-top-header .name-school {
+    text-transform: uppercase;
+}
+#left-top-header ul li a:hover {
+    color: rgb(92, 33, 33);
+    text-decoration: none;
+}
+#left-top-header a, #left-top-header i{
+    font-size: 1.6rem;
+    color: #FFF;
+}
+#left-top-header .info-icon{
+    display: none;
+}
+#left-top-header .info-icon a {
+    border: 1px solid rgb(48, 177, 209);
+    border-radius: 50%;
+    padding: 0.8rem 0.8rem;
+    margin-right: 1rem;
+}
+#left-top-header .info-icon i {
+    width: 1.8rem;
+    height: 1.8rem;
+    text-align: center;
+}
+#right-top-header .login a, #right-top-header .login i {
+    font-size: 1.6rem;
+    color: #FFF;
+}
+#right-top-header .login a i {
+    padding: 0 0.6rem;
+}
+#menu-icon {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .info-contact {
+        display: none;
+    }
+    #left-top-header ul {
+        justify-content: center;
+    }
+    #left-top-header .info-icon {
+        display: inline;
+    }
+  }
