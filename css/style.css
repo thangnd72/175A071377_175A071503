@@ -1,3 +1,4 @@
+
 * {
 	margin: 0;
 	padding: 0;
@@ -12,9 +13,9 @@
 header {
     position: relative;
 }
-/* style for top-header */
+/* TOP_HEADER */
 .top-header {
-    background: linear-gradient(90deg, rgba(73,72,80,1) 0%, rgba(11,12,200,0.7511379551820728) 0%, rgba(159,54,166,0.7819502801120448) 100%);
+    background: linear-gradient(90deg, #494850 0%, #0b0cc8c0 0%, #9f36a6c7 100%);
     padding: 0.8rem;
 }
 #left-top-header ul {
@@ -36,10 +37,11 @@ header {
     text-transform: uppercase;
     font-weight: 700;
 }
-#left-top-header ul li a:hover, .login a:hover {
-    color: rgb(218, 119, 27);
+#left-top-header ul li a:hover {
+    color: #00fff2;
     text-decoration: none;
 }
+
 #left-top-header a, #left-top-header i{
     font-size: 1.6rem;
     color: #FFF;
@@ -48,7 +50,7 @@ header {
     display: none;
 }
 #left-top-header .info-icon a {
-    border: 1px solid rgb(48, 177, 209);
+    border: 1px solid #30b1d1;
     border-radius: 50%;
     padding: 0.8rem 0.8rem;
     margin-right: 1rem;
@@ -68,14 +70,19 @@ header {
 .login a i {
     padding: 0 0.3rem;
 }
+.login a:hover {
+    color: rgb(0, 255, 242);
+    text-decoration: none;
+}
 
-/* style for bottom-header */
+/* BOTTOM_HEADER */
+/*========================================================*/
 
 .bottom-header {
     background-color: rgb(255, 255, 255);
     padding: 0.5rem;
     border-bottom: 1px solid rgb(196, 233, 255);
-    box-shadow: 0.2rem 0 0.8rem black;
+    box-shadow: 0.2rem -0.6rem 1.6rem black;
 }
 .bottom-header #logo {
     margin: 2rem;
@@ -104,7 +111,7 @@ nav ul li a {
     white-space: nowrap;
 }
 nav ul li:hover {
-    background-color: #113666;
+    background-color:#50bbff;
 }
 nav ul li:hover a {
     text-decoration: none;
@@ -116,6 +123,14 @@ nav ul li:not(:first-child) {
 .nav-sub ul li a {
     text-transform: none;
 }
+.nav-sub ul li a::before {
+    content: "»";
+    margin-right: 0.5rem;
+}
+.nav-sub ul li a:hover {
+    color: #1b35b7;
+    font-style: italic;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -126,7 +141,7 @@ nav ul li:not(:first-child) {
     opacity: 0;
     height: 0;
     left: -0.1rem;
-    background-color: #2c5892 ;
+    background-color: #50bbff ;
     box-shadow: 0 0.8rem 1.6rem;
     min-width: 18rem;
     flex-direction: column;
@@ -141,7 +156,7 @@ nav ul li:not(:first-child) {
 }
 .dropdown-nav a {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 0.4rem 1.6rem;
 }
 .dropdown:hover .dropdown-nav {
@@ -161,7 +176,66 @@ nav ul li:not(:first-child) {
 .form-nav {
     display: none;
 }
+/* BANNER */
+/*========================================================*/
+.banner {
+    padding-top: 2rem;
+}
+.left-banner, .right-banner {
+    height: 460px;
+}
+.h-55 {
+    height: 55%;
+}
 
+.h-45 {
+    height: 45%;
+}
+.o-9 {
+    opacity: 0.9;
+}
+.left-banner, .top-banner, .left-content, .right-content {
+    display: inline-block;
+    overflow: hidden;
+}
+.text-banner {
+    position: absolute;
+    bottom: 5%;
+    color: #FFF;
+    padding-left: 2rem;
+}
+.text-banner span {
+    padding: 0.3rem 0.6rem;
+    background:transparent;
+    background-color: #000;
+    font-size: 1.2rem;
+    color: #FFF;
+}
+.text-banner span:hover {
+    background-color: #0087e0;
+    color:#FFF;
+}
+.text-banner h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+.text-banner a {
+    display: block;
+    text-transform: uppercase;
+    color: #FFF;
+}
+.banner img {
+    transition: 0.5s linear;
+}
+
+.left-banner:hover img, .top-banner:hover img, .left-content:hover img, .right-content:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Responsive */
+/*========================================================*/
 @media only screen and (max-width: 1080px) {
     .info-contact {
         display: none;
@@ -176,7 +250,6 @@ nav ul li:not(:first-child) {
         display: none;
     }
 }
-
 @media only screen and (max-width: 991px) {
     nav {
         display: block !important;
@@ -192,5 +265,10 @@ nav ul li:not(:first-child) {
     }
     nav ul li:not(:first-child) {
         border-left: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .banner {
+        display: none;
     }
 }
