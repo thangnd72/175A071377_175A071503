@@ -18,8 +18,9 @@ header {
     position: relative;
 }
 /* TOP_HEADER */
+/*========================================================*/
 .top-header {
-    background: linear-gradient(90deg, #494850 0%, #0b0cc8c0 0%, #9f36a6c7 100%);
+    background: linear-gradient(180deg, #007efc 0%, #00f3ff 100%);
     padding: 0.8rem;
 }
 #left-top-header ul {
@@ -37,12 +38,13 @@ header {
     padding: 0 0.5rem;
     color: #6b82b3;
 }
-#left-top-header .name-school {
+#left-top-header .name-school span {
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 1.6rem;
 }
 #left-top-header ul li a:hover {
-    color: #00fff2;
+    color: #00ffff;
     text-decoration: none;
 }
 
@@ -54,7 +56,7 @@ header {
     display: none;
 }
 #left-top-header .info-icon a {
-    border: 1px solid #30b1d1;
+    border: 1px solid #299fbd;
     border-radius: 50%;
     padding: 0.8rem 0.8rem;
     margin-right: 1rem;
@@ -64,18 +66,24 @@ header {
     height: 1.8rem;
     text-align: center;
 }
+.inner-top-left>div{
+    margin-top: 0.6rem;
+}
+.inner-top-right>div {
+    margin-top: 0.6rem;
+}
 .login a, .login i {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #FFF;
 }
 .login i {
-    color: #7ba5ff;
+    color: #4b7eee;
 }
 .login a i {
     padding: 0 0.3rem;
 }
 .login a:hover {
-    color: rgb(0, 255, 242);
+    color: #00ffff;
     text-decoration: none;
 }
 
@@ -83,10 +91,10 @@ header {
 /*========================================================*/
 
 .bottom-header {
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
     padding: 0.5rem;
     border-bottom: 1px solid rgb(196, 233, 255);
-    box-shadow: 0 0 0.8rem 0 #555;
+    box-shadow: 0rem 0.2rem 0.4rem 0 #555;
 }
 .bottom-header #logo {
     margin: 2rem;
@@ -293,7 +301,7 @@ nav ul li:not(:first-child) {
 .description {
     font-size: 1.4rem;
 }
-.news-list, .notice { 
+.news-list, .notice {
     padding-left: 1rem;
 }
 .news-list ul li a {
@@ -353,7 +361,7 @@ nav ul li:not(:first-child) {
 /*========================================================*/
 .inner-footer {
     border-top: 3rem solid #eeecec;
-    background: linear-gradient(180deg, rgba(0,126,252,1) 0%, rgba(0,243,255,1) 100%);
+    background: linear-gradient(180deg, #007efc 0%, #00f3ff 100%);
     background-size: cover;
     margin-top: 2rem;
 }
