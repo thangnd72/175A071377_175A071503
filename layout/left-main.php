@@ -8,16 +8,8 @@
                 <div class="news">
                     <img class="w-100 h-100 mb-3" src="images/olympic.jpg" alt="">
                     <div class="news-content">
-                        <h3><a href="#">Đội tuyển sinh viên dự thi Olympic Tin học toàn quốc trước
-                                ngày ra quân</a></h3>
-                        <p class="description">(TLU) – “Với thời gian ôn luyện gấp rút trong 2 tháng
-                            cùng việc xét chọn kỹ lưỡng qua các bài kiểm tra, đội tuyển Olympic Tin
-                            học
-                            toàn quốc của Trường Đại học Thủy lợi đã tìm ra 6 gương mặt xuất sắc
-                            nhất”
-                            Đó là chia sẻ của thầy giáo Trương Xuân Nam – Bộ môn Tin học và Kỹ thuật
-                            tính toán – Giảng viên chính phụ trách đội tuyển Olympic Tin học của
-                            Trường...
+                        <h3><a href="#">Đội tuyển Olympic Tin học sinh viên tạo dấu ấn tại kỳ thi toàn quốc lần thứ 28</a></h3>
+                        <p class="description">(TLU) – Trong các ngày từ ngày 3 đến 7-12 tại Trường Đại học Bách Khoa - Đại học Đà Nẵng đã diễn ra các cuộc thi: cuộc thi Olympic Tin học sinh viên Việt Nam lần thứ 28 (OLP’19), cuộc thi lập trình sinh viên quốc tế ICPC khu vực châu Á (ICPC Asia DaNang 2019) và cuộc thi đối kháng Procon.
                         </p>
                     </div>
                 </div>

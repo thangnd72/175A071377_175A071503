@@ -25,9 +25,10 @@
     <header>
         <?php include 'layout/top-header.php';?>
         <?php include 'layout/bottom-header.php';?>
+
     </header>
     <main>
-        <?php /* include 'layout/top-main-content.php';*/?>
+        <?php /*include 'layout/top-main-content.php';*/?>
         <?php /*include 'layout/students.php';*/?>
         <?php include 'layout/post.php';?>
     </main>
