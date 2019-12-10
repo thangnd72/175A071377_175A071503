@@ -248,11 +248,12 @@ nav ul li:not(:first-child) {
     list-style-type: none ;
     line-height: 1.8;
     padding-bottom: 1.8rem;
-}.inner-main ul li a{
+}
+.inner-main ul li a{
     color: #111;
     font-size: 1.4rem;
 }
-.title-news h3, .notify h3 {
+.title-news h3, .notify h3 , .title-post h3{
     width: 8rem;
     height: 3rem;
     font-size: 1.5rem;
@@ -270,16 +271,20 @@ nav ul li:not(:first-child) {
     width: 11rem;
     background-color: #000;
 }
+.title-post h3 {
+    width: 17rem;
+    background-color: #000;
+}
 .title-news::after {
     content: '.';
     display: block;
     font-size: 0;
     height: 1px;
-    width:100%;
+    width: 100%;
     border-top: 2px solid #f9c100;
     margin-top: -2rem;
 }
-.notify::after {
+.notify::after, .title-post::after{
     content: '.';
     display: block;
     font-size: 0;
@@ -292,8 +297,9 @@ nav ul li:not(:first-child) {
     margin-top: 1.8rem;
 }
 .news .news-content h3 a{
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #000;
+    font-weight: 600;
 }
 .news .news-content a:hover {
     color: #0056d6;
@@ -355,6 +361,30 @@ nav ul li:not(:first-child) {
 .content ul li a:hover {
     text-decoration: none;
     color: #0046af;
+}
+
+/* POST */
+.f-13 *{
+    font-size: 1.3rem;
+}
+.list-category ul li {
+    list-style-type: none;
+}
+.list-category ul li a {
+    font-size: 1.4rem;
+    color: #000;
+}
+.author {
+    font-size: 1.4rem;
+}
+.inner-content .text p {
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color:#666;
+}
+article h2 {
+    font-size: 2.2rem;
 }
 
 /* FOOTER*/

@@ -82,4 +82,4 @@
         </div>
     </div>
 </div>
-<?php include 'layout/banner.php'?>
+<?php /*include 'layout/banner.php';*/ ?>
