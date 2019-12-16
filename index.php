@@ -1,3 +1,4 @@
+<?php require ('mysqli_connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,9 +29,35 @@
 
     </header>
     <main>
-        <?php /*include 'layout/top-main-content.php';*/?>
-        <?php /*include 'layout/students.php';*/?>
-        <?php include 'layout/post.php';?>
+    <?php
+    // Switch redirect page
+        if(isset($_GET['category'])){
+            $category=$_GET['category'];
+        } else {
+            $category='';
+        }
+        switch ($category) {
+            case "news":
+            case "notify":
+            case "futureStudent":
+            case "oldStudent":
+            case "presentStudent":
+            case "events";
+            case "business";
+                if (isset($_GET['idPost'])) {
+                    $idPost=$_GET['idPost'];
+                    include('layout/post.php');
+                    // } else {
+                //     $idPost='';
+                //     include('layout/list.php');
+                // }
+                }
+            break;
+            default:
+                include('layout/home.php');
+            break;
+        }
+    ?>
     </main>
     <footer>
         <?php include 'layout/footer.php';?>

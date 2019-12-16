@@ -94,8 +94,7 @@ header {
     margin-top: 0.6rem;
 }
 
-.login a,
-.login i {
+.login a, .login i {
     font-size: 1.4rem;
     color: #FFF;
 }
@@ -476,9 +475,9 @@ nav ul li:not(:first-child) {
 .author {
     font-size: 1.4rem;
 }
-.inner-content .text p {
+article .text p{
     margin-top: 1.2rem;
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     line-height: 1.8;
     color:#666;
 }

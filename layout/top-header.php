@@ -6,7 +6,7 @@
                     <ul>
                         <div class="d-flex justify-content-around align-items-center inner-top-left">
                             <div class="name-school">
-                                <li><a href=""><span>my university<span></a></li>
+                                <li><a href=""><span>Trường đại học Thuỷ Lợi<span></a></li>
                             </div>
                             <div class="info-contact">
                                 <li>

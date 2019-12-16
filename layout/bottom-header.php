@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="logo">
-                    <a href=""><img src="./images/logo.png" alt="logo"></a>
+                    <a href="index.php"><img src="./images/logo.png" alt="logo"></a>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="showMenu">
                         <ul class="navbar-nav mx-auto main-nav">
-                            <li><a href="#" title="Trang chủ">Trang chủ</a></li>
+                            <li><a href="index.php" title="Trang chủ">Trang chủ</a></li>
                             <li class="dropdown"><a href="#" title="">Giới thiệu</a>
                                 <div class="nav-sub">
                                     <ul class="dropdown-nav">
@@ -82,4 +82,3 @@
         </div>
     </div>
 </div>
-<?php /*include 'layout/banner.php';*/ ?>
