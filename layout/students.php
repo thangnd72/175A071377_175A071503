@@ -34,9 +34,6 @@
                                     ?>
                                     <li><a href="index.php?category=presentStudent&idPost=<?= $row['idPost'];?>"><?= mb_substr($row['titlePost'], 0, 45); ?>...</a></li>
                                         <?php } ?>
-                                    <!-- <li><a href="#">Thư gửi "Tôi của ngày hôm qua"</a></li>
-                                    <li><a href="#">Thông báo mở lớp ôn luyện OLP Toán học...</a></li>
-                                    <li><a href="#">Sinh viên Trường Đại học Thủy Lợi toả...</a></li> -->
                                 </ul>
                             </div>
                         </div>

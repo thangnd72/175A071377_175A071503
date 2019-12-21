@@ -94,22 +94,28 @@ header {
     margin-top: 0.6rem;
 }
 
-.login a, .login i {
+.login * {
     font-size: 1.4rem;
-    color: #FFF;
 }
 
 .login i {
     color: #4b7eee;
-}
-
-.login a i {
     padding: 0 0.3rem;
 }
-
+.login a {
+    color: #FFF;
+}
 .login a:hover {
     color: #00ffff;
     text-decoration: none;
+}
+.login .dropdown span {
+    color: #FFF;
+    cursor: pointer;
+}
+
+#login-form *, #register-form *{
+    font-size: 1.4rem;
 }
 
 

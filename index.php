@@ -1,4 +1,7 @@
-<?php require ('mysqli_connect.php'); ?>
+<?php
+    session_start();
+    require ('mysqli_connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +28,8 @@
 <body>
     <header>
         <?php include 'layout/top-header.php';?>
+            <?php include "layout/login.php"; ?>
+            <?php include "layout/register.php"; ?>
         <?php include 'layout/bottom-header.php';?>
 
     </header>
@@ -47,10 +52,6 @@
                 if (isset($_GET['idPost'])) {
                     $idPost=$_GET['idPost'];
                     include('layout/post.php');
-                    // } else {
-                //     $idPost='';
-                //     include('layout/list.php');
-                // }
                 }
             break;
             default:
@@ -62,4 +63,6 @@
     <footer>
         <?php include 'layout/footer.php';?>
     </footer>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
 </body>

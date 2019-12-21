@@ -38,9 +38,27 @@
                             </form>
                         </div>
                         <div class="login">
-                            <a href="#"><i class="fas fa-sign-out-alt"></i>Login/Register</a>
+                            <?php if (isset($_SESSION['idUser'])) {
+                                $accID = $_SESSION['idUser'];
+                                $sql = "SELECT * FROM Account WHERE accID = $accID ";
+                                $user = mysqli_query($conn, $sql);
+                                $row = mysqli_fetch_array($user);
+                            ?>
+                                <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown">Xin chào <?= $row['lastName']; ?></span>
+                                    <div class="dropdown-menu dropdown-menu-right " aria-labelledby="dropdownMenu2">
+                                        <a href="<?php
+                                            if (isset($_SESSION['level']) == 1 || isset($_SESSION['level']) == 2) {
+                                                echo "dashboard.php";
+                                            }
+                                        ?>" class="dropdown-item" style="font-size: 1.2rem; color: black">My Account</a>
+                                        <a href="layout/logout.php"class="dropdown-item" style="font-size: 1.2rem; color: black">Log Out</a>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <i class="fas fa-sign-out-alt"></i><a href="#" class="lg"data-toggle="modal" data-target="#login-form">Login/Register</a>
+                            <?php } ?>
                         </div>
-                        <!-- <div class="demo"></div> -->
                     </div>
                 </div>
             </div>

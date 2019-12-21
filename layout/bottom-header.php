@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div id="logo">
-                    <a href="index.php"><img src="./images/logo.png" alt="logo"></a>
+                    <a href="index.php"><img class="w-25 h-25" src="./images/logo.png" alt="logo"></a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,11 @@
                                 </div>
                             </li>
                             <li><a href="#" title="Liên hệ">Liên hệ</a></li>
-                            <li><a href="#" title="Liên hệ">Dash board</a></li>
+                            <?php 
+                                if ($_SESSION['level'] === 1 || $_SESSION['level'] === 2) {
+                                    ?>
+                            <li><a href="dashboard.php" title="Liên hệ">Dash board</a></li>
+                            <?php } ?>
                         </ul>
                         <div class="form-nav">
                             <form method="" class="form-inline" action="">
