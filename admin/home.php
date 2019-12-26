@@ -9,9 +9,14 @@
                         </div>
                     </div>
                     <div class="col-7">
+                        <?php
+                            $sql = "SELECT COUNT(*) as SLNews FROM Posts WHERE category not like 'notify'";
+                            $count = mysqli_query($conn, $sql);
+                            $rowCount = mysqli_fetch_array($count);
+                        ?>
                         <div class="numbers">
                             <p class="card-category">Bài viết</p>
-                            <h4 class="card-title">8</h4>
+                            <h4 class="card-title"><?= $rowCount['SLNews']; ?></h4>
                         </div>
                     </div>
                 </div>
@@ -34,9 +39,14 @@
                         </div>
                     </div>
                     <div class="col-7">
+                        <?php
+                            $sql = "SELECT COUNT(*) as SLNotify FROM Posts WHERE category like 'notify'";
+                            $count = mysqli_query($conn, $sql);
+                            $rowCount = mysqli_fetch_array($count);
+                        ?>
                         <div class="numbers">
                             <p class="card-category">Thông báo</p>
-                            <h4 class="card-title">5</h4>
+                            <h4 class="card-title"><?= $rowCount['SLNotify']; ?></h4>
                         </div>
                     </div>
                 </div>
@@ -84,9 +94,14 @@
                         </div>
                     </div>
                     <div class="col-7">
+                        <?php
+                            $sqlUser = "SELECT COUNT(*) as SL FROM Account";
+                            $countUser = mysqli_query($conn, $sqlUser);
+                            $rowCount = mysqli_fetch_array($countUser);
+                        ?>
                         <div class="numbers">
                             <p class="card-category">Người dùng</p>
-                            <h4 class="card-title">10</h4>
+                            <h4 class="card-title"><?= $rowCount['SL']; ?></h4>
                         </div>
                     </div>
                 </div>

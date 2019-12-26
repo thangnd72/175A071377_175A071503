@@ -25,7 +25,6 @@ $(document).ready(function() {
                 },
                 dataType: "JSON",
                 success: function(response) {
-                    // console.log('A', response);
                     if (response.status === "error1") {
                         $("#email-login").addClass("is-invalid");
                         $("#email-login-err").text(response.message1);
@@ -34,7 +33,6 @@ $(document).ready(function() {
                         $("#pw-err").text(response.message2);
                     } else if(response.status === "success") {
                         $("#login-form").modal("hide");
-                        // console.log(response);
                         window.location.href = response.url;
                     }
                 }

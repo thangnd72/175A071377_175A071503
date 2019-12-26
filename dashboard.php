@@ -23,12 +23,8 @@ if (!isset($_SESSION['level'])) {
     <link rel="stylesheet" type="text/css" href="admin/style.css">
     <link rel="stylesheet" type="text/css" href="admin/assets/css/style.css">
     <script src="admin/ckeditor/ckeditor.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -48,54 +44,28 @@ if (!isset($_SESSION['level'])) {
                     <a class="link-tlu" href="index.php" alt="Trang chủ">Đại học thuỷ lợi</a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item" id="user-nav">
-                        <a class="nav-link" data-toggle="collapse" href="#component">
-                            <i class="nc-icon nc-single-02"></i>
-                            <span class="nav-item-title">Đỗ Ngọc Minh<i class="fas fa-caret-down"></i></span>
-                        </a>
-                        <ul class="nav collapse" id="component">
-                            <li class="nav-item nav-child">
-                                <a class="nav-link" href="/drl/profile">
-                                    <span class="link-name-mini"><i class="nc-icon nc-circle-09 fz-1em"></i></span>
-                                    <span class="link-name-normal nav-item-title">Hồ sơ cá nhân</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-child">
-                                <a class="nav-link" href="/drl/pwd">
-                                    <span class="link-name-mini"><i class="nc-icon nc-refresh-02 fz-1em"></i></span>
-                                    <span class="link-name-normal nav-item-title">Đổi mật khẩu</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-child">
-                                <a class="nav-link" href="/">
-                                    <span class="link-name-mini"><i class="nc-icon nc-button-power fz-1em"></i></span>
-                                    <span class="link-name-normal nav-item-title">Đăng xuất</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">
                             <i class="nc-icon nc-grid-45"></i>
-                            <span class="nav-item-title">TRANG CHỦ</span>
+                            <span class="nav-item-title">HOME</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#component1">
                             <i class="nc-icon nc-single-copy-04"></i>
-                            <span class="nav-item-title">TIN TỨC<i class="fas fa-caret-down"></i></span>
+                            <span class="nav-item-title">NEWS<i class="fas fa-caret-down"></i></span>
                         </a>
                         <ul class="nav collapse" id="component1">
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="/drl/points/add">
-                                    <span class="link-name-mini">DS</span>
-                                    <span class="link-name-normal nav-item-title">Danh sách bài viết</span>
+                                    <span class="link-name-mini">LP</span>
+                                    <span class="link-name-normal nav-item-title">List Posts</span>
                                 </a>
                             </li>
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=newPost">
-                                    <span class="link-name-mini">TM</span>
-                                    <span class="link-name-normal nav-item-title">Thêm bài viết</span>
+                                    <span class="link-name-mini">AP</span>
+                                    <span class="link-name-normal nav-item-title">Add Posts</span>
                                 </a>
                             </li>
                         </ul>
@@ -103,25 +73,31 @@ if (!isset($_SESSION['level'])) {
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#component2">
                             <i class="nc-icon nc-single-02"></i>
-                            <span class="nav-item-title">NGƯỜI DÙNG<i class="fas fa-caret-down"></i></span>
+                            <span class="nav-item-title">USERS<i class="fas fa-caret-down"></i></span>
                         </a>
                         <ul class="nav collapse" id="component2">
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="/drl/points">
-                                    <span class="link-name-mini">DS</span>
-                                    <span class="link-name-normal nav-item-title">Danh sách người dùng</span>
+                                    <span class="link-name-mini">LU</span>
+                                    <span class="link-name-normal nav-item-title">List Users</span>
+                                </a>
+                            </li>
+                            <li class="nav-item nav-child">
+                                <a class="nav-link" href="dashboard.php?category=newAccount">
+                                    <span class="link-name-mini">NA</span>
+                                    <span class="link-name-normal nav-item-title">New Account</span>
                                 </a>
                             </li>
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=newUser">
-                                    <span class="link-name-mini">TM</span>
-                                    <span class="link-name-normal nav-item-title">Thêm người dùng</span>
+                                    <span class="link-name-mini">NA</span>
+                                    <span class="link-name-normal nav-item-title">New User</span>
                                 </a>
                             </li>
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=manageUser">
-                                    <span class="link-name-mini">QL</span>
-                                    <span class="link-name-normal nav-item-title">Quản lý người dùng</span>
+                                    <span class="link-name-mini">MU</span>
+                                    <span class="link-name-normal nav-item-title">Manager Users</span>
                                 </a>
                             </li>
                         </ul>
@@ -155,26 +131,25 @@ if (!isset($_SESSION['level'])) {
                             </div>
                             <div class="users-wrapper">
                                 <div class="users-info">
-                                    <h5>Đỗ Ngọc Minh(175A071515)</h5>
-                                    <span>Sinh viên</span>
+                                    <span><?= $row['firstName'] . ' ' . $row['lastName']; ?></span>
                                 </div>
                                 <ul class="nav users-dropdown" id="component3">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/drl/profile">
                                             <i class="nc-icon nc-circle-09"></i>
-                                            <span class="link-name-normal">Hồ sơ cá nhân</span>
+                                            <span class="link-name-normal">My Profile</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/drl/pwd">
                                             <i class="nc-icon nc-refresh-02"></i>
-                                            <span class="link-name-normal">Đổi mật khẩu</span>
+                                            <span class="link-name-normal">Change Password</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="layout/logout.php">
                                             <i class="nc-icon nc-button-power"></i>
-                                            <span class="link-name-normal">Đăng xuất</span>
+                                            <span class="link-name-normal text-danger">Logout</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -193,8 +168,8 @@ if (!isset($_SESSION['level'])) {
                 case "newPost":
                     include('admin/newPosts.php');
                     break;
-                case "newUser":
-                    include('admin/newUser.php');
+                case "newAccount":
+                    include('admin/newAccount.php');
                     break;
                 case "manageUser":
                     include('admin/manageUser.php');
@@ -222,6 +197,7 @@ if (!isset($_SESSION['level'])) {
         }
     </script>
     <script src="admin/assets/js/script.js"></script>
+    <script src="admin/assets/js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
