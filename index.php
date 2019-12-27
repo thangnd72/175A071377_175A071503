@@ -54,6 +54,10 @@
                     include('layout/post.php');
                 }
             break;
+            case "student":
+                include('layout/studentView.php');
+            break;
+            
             default:
                 include('layout/home.php');
             break;

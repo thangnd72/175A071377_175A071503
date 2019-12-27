@@ -38,15 +38,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="dropdown"><a href="#" title="Sinh viên">Sinh viên</a>
-                                <div class="nav-sub">
-                                    <ul class="dropdown-nav">
-                                        <li><a href="#" title="">Hoạt động sinh viên</a></li>
-                                        <li><a href="#" title="">Hỗ trợ sinh viên</a></li>
-                                        <li><a href="#" title="">Học phí</a></li>
-                                        <li><a href="#" title="">Quy chế, quy định</a></li>
-                                    </ul>
-                                </div>
+                            <li class="dropdown"><a href="index.php?category=student" title="Sinh viên">Sinh viên</a>
+                                
                             </li>
                             <li class="dropdown"><a href="#" title="Tin tức">Tin tức</a>
                                 <div class="nav-sub">
