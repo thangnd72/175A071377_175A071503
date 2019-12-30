@@ -39,7 +39,6 @@
                                 </div>
                             </li>
                             <li class="dropdown"><a href="index.php?category=student" title="Sinh viên">Sinh viên</a>
-                                
                             </li>
                             <li class="dropdown"><a href="#" title="Tin tức">Tin tức</a>
                                 <div class="nav-sub">

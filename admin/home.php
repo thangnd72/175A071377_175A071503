@@ -69,9 +69,14 @@
                         </div>
                     </div>
                     <div class="col-7">
+                    <?php
+                        $sql = "SELECT COUNT(*) as SLStudent FROM Users WHERE job like 'student'";
+                        $count = mysqli_query($conn, $sql);
+                        $rowCount = mysqli_fetch_array($count);
+                    ?>
                         <div class="numbers">
                             <p class="card-category">Sinh viên</p>
-                            <h4 class="card-title">20</h4>
+                            <h4 class="card-title"><?= $rowCount['SLStudent']; ?></h4>
                         </div>
                     </div>
                 </div>

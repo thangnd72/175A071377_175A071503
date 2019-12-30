@@ -54,7 +54,7 @@ $(document).ready(function() {
                         $('.notify-success').text("Thêm không thành công.");
                     }
                     $('.notify-success').css('display', 'block')
-                    setTimeout(()=>{
+                    setTimeout(function(){
                       $('.notify-success').css('display', 'none');
                       $('.notify-success').text('');
                     }, 3000);

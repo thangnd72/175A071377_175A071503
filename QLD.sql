@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2019 at 02:21 PM
--- Server version: 8.0.15
+-- Generation Time: Dec 30, 2019 at 05:05 PM
+-- Server version: 8.0.18
 -- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -45,9 +45,45 @@ CREATE TABLE `Account` (
 
 INSERT INTO `Account` (`accID`, `userID`, `firstName`, `lastName`, `email`, `password`, `level`) VALUES
 (8, 'Admin', 'Nguyễn', 'Thắng', 'nguyendinhthang99bn@gmail.com', '$2y$10$6/RWEl1iw4qh/0BaGkOW6.s991uO.t.VDv5GiPtdY82nljBZjYJ/W', 1),
-(9, 'GV01', 'Nguyễn', 'Huệ', 'gv01@gmail.com', '$2y$10$8H/fhhBtTFnKzv1tk6JnruJiExuAdcfnPo3yz8w8ZdIYclNFlYeVm', 2),
-(10, NULL, 'cc', 'cc', 'thang@cc.com', '$2y$10$QUgN814VLeoCIdwSWzUECucUClf3MgUWz1u0z5zul8UQNjpzOabzy', 3),
-(11, NULL, 'ccc', 'cc', 'thang@cc.comcc', '$2y$10$XfBZ7WloL9wJRiC1b0LHWO96ZumAm4VOxk5NX9JvDkDdac98WTIgW', 3);
+(9, 'GV01', 'Nguyễn', 'Huệ', 'gv01@gmail.com', '$2y$10$8H/fhhBtTFnKzv1tk6JnruJiExuAdcfnPo3yz8w8ZdIYclNFlYeVm', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Classes`
+--
+
+CREATE TABLE `Classes` (
+  `classID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `className` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `majorID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Majors`
+--
+
+CREATE TABLE `Majors` (
+  `majorID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `majorName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `faculty` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Marks`
+--
+
+CREATE TABLE `Marks` (
+  `userID` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `termID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `totalMark` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,11 +93,11 @@ INSERT INTO `Account` (`accID`, `userID`, `firstName`, `lastName`, `email`, `pas
 
 CREATE TABLE `Posts` (
   `idPost` tinyint(1) NOT NULL,
-  `category` varchar(50) NOT NULL,
-  `titlePost` varchar(255) DEFAULT NULL,
-  `content` text NOT NULL,
-  `imgPost` text NOT NULL,
-  `author` varchar(30) NOT NULL,
+  `category` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titlePost` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imgPost` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `author` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `accID` tinyint(1) UNSIGNED NOT NULL,
   `dateCreated` datetime DEFAULT CURRENT_TIMESTAMP,
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
@@ -88,15 +124,68 @@ INSERT INTO `Posts` (`idPost`, `category`, `titlePost`, `content`, `imgPost`, `a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Students`
+--
+
+CREATE TABLE `Students` (
+  `userID` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CMT` int(10) NOT NULL,
+  `gender` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Subjects`
+--
+
+CREATE TABLE `Subjects` (
+  `subjectID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `credits` int(11) NOT NULL,
+  `processMark` float NOT NULL,
+  `testScore` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Teachers`
+--
+
+CREATE TABLE `Teachers` (
+  `userID` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `classID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `majorID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Terms`
+--
+
+CREATE TABLE `Terms` (
+  `termID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `termName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stage` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `yearSchool` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Users`
 --
 
 CREATE TABLE `Users` (
-  `userID` char(11) NOT NULL,
+  `userID` char(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `userName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` char(11) NOT NULL,
+  `phone` char(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contact` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job` varchar(30) NOT NULL
+  `job` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -120,11 +209,63 @@ ALTER TABLE `Account`
   ADD KEY `userID` (`userID`);
 
 --
+-- Indexes for table `Classes`
+--
+ALTER TABLE `Classes`
+  ADD PRIMARY KEY (`classID`),
+  ADD KEY `majorID` (`majorID`);
+
+--
+-- Indexes for table `Majors`
+--
+ALTER TABLE `Majors`
+  ADD PRIMARY KEY (`majorID`);
+
+--
+-- Indexes for table `Marks`
+--
+ALTER TABLE `Marks`
+  ADD PRIMARY KEY (`totalMark`),
+  ADD KEY `classID` (`classID`),
+  ADD KEY `subjectID` (`subjectID`),
+  ADD KEY `termID` (`termID`),
+  ADD KEY `userID` (`userID`);
+
+--
 -- Indexes for table `Posts`
 --
 ALTER TABLE `Posts`
   ADD PRIMARY KEY (`idPost`),
   ADD KEY `accID` (`accID`);
+
+--
+-- Indexes for table `Students`
+--
+ALTER TABLE `Students`
+  ADD PRIMARY KEY (`CMT`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `classID` (`classID`);
+
+--
+-- Indexes for table `Subjects`
+--
+ALTER TABLE `Subjects`
+  ADD PRIMARY KEY (`subjectID`);
+
+--
+-- Indexes for table `Teachers`
+--
+ALTER TABLE `Teachers`
+  ADD KEY `userID` (`userID`),
+  ADD KEY `classID` (`classID`),
+  ADD KEY `subjectID` (`subjectID`),
+  ADD KEY `majorID` (`majorID`);
+
+--
+-- Indexes for table `Terms`
+--
+ALTER TABLE `Terms`
+  ADD PRIMARY KEY (`termID`);
 
 --
 -- Indexes for table `Users`
@@ -146,7 +287,7 @@ ALTER TABLE `Account`
 -- AUTO_INCREMENT for table `Posts`
 --
 ALTER TABLE `Posts`
-  MODIFY `idPost` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idPost` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -159,10 +300,41 @@ ALTER TABLE `Account`
   ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
+-- Constraints for table `Classes`
+--
+ALTER TABLE `Classes`
+  ADD CONSTRAINT `classes_ibfk_1` FOREIGN KEY (`majorID`) REFERENCES `majors` (`majorID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Marks`
+--
+ALTER TABLE `Marks`
+  ADD CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`classID`) REFERENCES `classes` (`classID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `marks_ibfk_3` FOREIGN KEY (`subjectID`) REFERENCES `subjects` (`subjectID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `marks_ibfk_4` FOREIGN KEY (`termID`) REFERENCES `terms` (`termID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `marks_ibfk_5` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `Posts`
 --
 ALTER TABLE `Posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`accID`) REFERENCES `account` (`accID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Students`
+--
+ALTER TABLE `Students`
+  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `students_ibfk_2` FOREIGN KEY (`classID`) REFERENCES `classes` (`classID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Teachers`
+--
+ALTER TABLE `Teachers`
+  ADD CONSTRAINT `teachers_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `teachers_ibfk_2` FOREIGN KEY (`classID`) REFERENCES `classes` (`classID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `teachers_ibfk_3` FOREIGN KEY (`subjectID`) REFERENCES `subjects` (`subjectID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `teachers_ibfk_4` FOREIGN KEY (`majorID`) REFERENCES `majors` (`majorID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

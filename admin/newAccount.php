@@ -6,7 +6,6 @@
             </h4>
         </div>
         <div class="card-body">
-            <!-- <div class="row"> -->
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6 col-12">
@@ -39,7 +38,6 @@
                         <option>3</option>
                     </select>
                 </div>
-            <!-- </div> -->
             <a class="text-decoration-none" href="/drl/users/add"><input type="button" class="btn btn-outline-secondary" value="Thêm mới" /></a>
         </div>
     </div>
