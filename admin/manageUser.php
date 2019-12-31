@@ -26,8 +26,8 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Đỗ Ngọc Minh</td>
-                            <td>minhreal13@gmail.com</td>
+                            <td>Nguyễn Đình Thắng</td>
+                            <td>nguyendinhthang99bn@gmail.com</td>
                             <td>Admin</td>
                             <td>2019/12/13</td>
                             <td class="d-flex justify-content-end">

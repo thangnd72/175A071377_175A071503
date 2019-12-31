@@ -32,15 +32,15 @@ $(document).ready(function() {
         } else {
             $("#pw-confirm").removeClass("is-invalid");
         }
-        if(password.length < 6 && password.length > 18) {
+        if(password.length<6) {
             $("#pw-register").addClass("is-invalid");
-            $("#passwordErr").text("Password must be between 6 and 18 characters. Try Again!")
+            $("#passwordErr").text("Passwords must have at least 6 characters Try again.")
         } else {
             $("#pw-register").removeClass("is-invalid");
         }
 
         // Các trường thoả mãn thì chạy ajax
-        if(firstName.length && lastName.length && email.length && password.length >=6 && password.length <= 18 && password === cfpassword ) {
+        if(firstName.length && lastName.length && email.length && password.length >=6 && password === cfpassword ) {
             $.ajax({
                 type: "POST",
                 url: "process/processRegister.php",

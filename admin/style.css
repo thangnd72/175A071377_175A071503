@@ -436,6 +436,18 @@ input.user-fields {
     }
 
 }
+/*DASHBOARD*/
+.p-13, .p-13 * {
+    font-size: 1rem;
+}
+.notify-success {
+    display: none;
+    position: absolute;
+    top: 10%;
+    right: 1rem;
+    z-index: 9999;
+}
+
 
 @media only screen and (max-width: 475px) {
     .nav-search {

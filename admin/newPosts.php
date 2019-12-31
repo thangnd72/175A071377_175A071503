@@ -5,8 +5,6 @@
             <p class="card-category">Create a new post</p>
             <br />
         </div>
-        <div class="alert alert-success notify-success" style="display: none;" role="alert">
-        </div>
         <div class="card-body" id="newUserForm">
             <div class="form-group col-12">
                 <label for="permission">Category</label>

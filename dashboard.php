@@ -36,6 +36,8 @@ if (!isset($_SESSION['level'])) {
         $row = mysqli_fetch_array($user);
     }
     ?>
+    <div class="alert alert-success notify-success p-13" role="alert">
+    </div>
     <div class="wrapper">
         <div class='sidebar'>
             <div class="sidebar-wrapper">
@@ -77,21 +79,9 @@ if (!isset($_SESSION['level'])) {
                         </a>
                         <ul class="nav collapse" id="component2">
                             <li class="nav-item nav-child">
-                                <a class="nav-link" href="/drl/points">
-                                    <span class="link-name-mini">LU</span>
-                                    <span class="link-name-normal nav-item-title">List Users</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=newAccount">
                                     <span class="link-name-mini">NA</span>
                                     <span class="link-name-normal nav-item-title">New Account</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-child">
-                                <a class="nav-link" href="dashboard.php?category=newUser">
-                                    <span class="link-name-mini">NA</span>
-                                    <span class="link-name-normal nav-item-title">New User</span>
                                 </a>
                             </li>
                             <li class="nav-item nav-child">
@@ -118,11 +108,7 @@ if (!isset($_SESSION['level'])) {
                         <div class="sidebar-toggle">
                             <button id="btn-toggle" class="sidebar-toggle-btn">
                                 <i class="fas fa-ellipsis-v"></i>
-
                             </button>
-                            <!-- <button id="btn-mini" class="sb-toggle-btn-mini">
-                                        <i class="fas fa-bars"></i>
-                                    </button> -->
                         </div>
                         <div>
                             <div class="nav-search w25vw ">

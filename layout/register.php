@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Password</label>
-                        <input type="password" class="form-control" name="password" id="pw-register" placeholder="" minLength="6" maxLength="18">
+                        <input type="password" class="form-control" name="password" id="pw-register" placeholder="" minLength="6" maxLength="100">
                         <div class="invalid-feedback" id="passwordErr"style="font-size: 12px">Password is required</div>
                     </div>
                     <div class="form-group">
