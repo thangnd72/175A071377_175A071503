@@ -82,17 +82,6 @@ $(document).ready(function() {
         const phone = $("#phone").val();
         const contact = $("#eContact").val();
 
-        // Kiểm tra checkbox được check: 0 = False ; 1 =True
-        const newUser = $("#newUser:checked").length;
-
-        // Kiểm tra checkbox được check thì điều kiện kiểm tra trường userID được bật
-        if(newUser == 1) {
-            if(!idUser.length) {
-                $("#idUser").addClass("is-invalid");
-            } else {
-                $("#idUser").removeClass("is-invalid");
-            }
-        }
         // Kiểm tra điều kiện các trường nhập vào
         if(!firstName.length) {
             $("#fName").addClass("is-invalid");
@@ -131,6 +120,11 @@ $(document).ready(function() {
         } else {
             $("#level").removeClass("is-invalid");
         }
+        if(!userID.length) {
+            $("#idUser").addClass("is-invalid");
+        } else {
+            $("#idUser").removeClass("is-invalid");
+        }
 
         // Các trường thoả mãn chạy ajax
         if(firstName.length && lastName.length && email.length && password.length >=6 && password === cfpassword ) {
@@ -156,7 +150,6 @@ $(document).ready(function() {
                         $('.notify-success').text("Thêm thành công.");
                         // Clear giá trị các trường nhập vào
                         $('input[type="text"],input[type="password"],textarea, #level').val('');
-                        $('input:checkbox').prop("checked", false);
                     }
                     // Email đã tồn tại
                     if (res.status == false && res.error == "existMail") {
@@ -164,11 +157,15 @@ $(document).ready(function() {
                         $("#email").addClass("is-invalid");
                         $("#emailErr").text(res.message);
                     }
-                    // idPerson đã tồn tại
-                    if (res.status == false && res.error == "existPerson") {
+                    // userID đã tồn tại
+                    if (res.status == false && res.error == "existUser") {
                         $('.notify-success').text("Thêm không thành công.");
-                        $("#idPerson").addClass("is-invalid");
-                        $("#idPersonErr").text(res.message);
+                        $("#idUser").addClass("is-invalid");
+                        $("#idUserErr").text(res.message);
+                    }
+                    // level k hợp lệ
+                    if (res.status == false && res.error == "validLevel") {
+                        $('.notify-success').text(res.message);
                     }
                     // set trang thái tag div được hiển thị và ẩn sau 3s
                     $('.notify-success').css('display', 'block')
@@ -179,5 +176,112 @@ $(document).ready(function() {
                 }
             })
         }
+    })
+
+    // Edit User
+
+    $(document).on('click', '#editUserBtn', function(){
+        let userID = $(this).data("user");
+        $("#editUser").data('user', userID);
+        $.ajax({
+            type: "POST",
+            url: "admin/process/processGetDataUser.php",
+            data: {
+                userID : userID
+            },
+            dataType: "JSON",
+            success: function(res) {
+                if(res.status) {
+                    $('#userNameEdit').val(res.userName);
+                    $('#phoneEdit').val(res.phone);
+                    $('#contactEdit').val(res.contact);
+                    $('#jobEdit').val(res.job);
+                } else {
+                    alert(res.message);
+                }
+            }
+        })
+    })
+
+    //Save user change
+    $(document).on('click', '#saveUser', function(){
+        const userName = $("#userNameEdit").val();
+        const job = $("#jobEdit").val();
+        const phone = $("#phoneEdit").val();
+        const contact = $("#contactEdit").val();
+        const userID = $("#editUser").data('user');
+
+        // Kiểm tra điều kiện các trường nhập vào
+        if(!userName.length) {
+           $("#userNameEdit").addClass("is-invalid");
+        } else {
+            $("#userNameEdit").removeClass("is-invalid");
+        }
+
+
+        if(userName.length) {
+            $.ajax({
+                type: "POST",
+                url: "admin/process/processEditUser.php",
+                data: {
+                    userName: userName,
+                    phone: phone,
+                    contact: contact,
+                    job: job,
+                    userID: userID
+                },
+                dataType: "JSON",
+                success: (res) => {
+                    if(res.status) {
+                        //khi thay đổi info user and save thì cập nhật lại user 
+                        $("#showUser").load('admin/process/processUser.php');
+                        $('.notify-success').text("Cập nhật thành công.");
+                        $("#editUser").modal("hide");
+                    } else {
+                        $('.notify-success').text("Cập nhật không thành công.");
+                        alert(res.message);
+                    }
+                    $('.notify-success').css('display', 'block')
+                    setTimeout(()=>{
+                    $('.notify-success').css('display', 'none');
+                    $('.notify-success').text('');
+                    }, 3000);
+                }
+            })
+        }
+    })
+    // Delete User
+    $(document).on('click', '#deleteUserBtn', function(){
+        let data = $(this).data('user');
+        $("#yesDel").data('userID', data);
+        console.log(data);
+        $('#yesDel').click(function () {
+            // Lấy giá trị id Lesson từ attr data-user
+            let userID= $(this).data('userID');
+            
+            $.ajax({
+                type: "POST",
+                url: "admin/process/processDeleteUser.php",
+                data: {
+                userID: userID
+                },
+                dataType: "JSON",
+                success: function(res) {
+                    if(res.status) {
+                        $("#showUser").load('admin/process/processUser.php');
+                        $('.notify-success').text("Xoá thành công.");
+                    } else {
+                        $('.notify-success').text("Xoá không thành công.");
+                        alert(res.message);
+                    }
+                    $("#confirm-delete").modal("hide");
+                    $('.notify-success').css('display', 'block')
+                    setTimeout(function() {
+                    $('.notify-success').css('display', 'none');
+                    $('.notify-success').text('');
+                    }, 3000);
+                }
+            })
+        })
     })
 })

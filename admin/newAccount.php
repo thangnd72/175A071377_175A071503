@@ -46,10 +46,6 @@
             </div>
             <div class="form-group">
                 <label class="col-form-label font-weight-bold mt-5" style="font-size:1.6rem;">New Users:</label>
-                <div class="d-flex flex-row mt-2">
-                    <label>Click to create an account user.</label>
-                    <input type="checkbox" class="form-control ml-2" name="newUser" id="newUser" />
-                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6 col-12">

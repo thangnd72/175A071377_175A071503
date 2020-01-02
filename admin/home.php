@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-7">
                         <?php
-                            $sqlUser = "SELECT COUNT(*) as SL FROM Account";
+                            $sqlUser = "SELECT COUNT(*) as SL FROM Users";
                             $countUser = mysqli_query($conn, $sqlUser);
                             $rowCount = mysqli_fetch_array($countUser);
                         ?>

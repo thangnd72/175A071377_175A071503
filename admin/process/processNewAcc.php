@@ -29,7 +29,7 @@
                         $result2 = mysqli_query($conn, $s2);
                         $num2 = mysqli_num_rows($result2);
                         if( $num2 === 1) {
-                            echo json_encode(["status" => false, "error"=>"existPerson", "message" => "User ID already exist"]);
+                            echo json_encode(["status" => false, "error"=>"existUser", "message" => "User ID already exist"]);
                         } else {
                             $sql1 = "INSERT INTO Users(userID, userName, phone, contact, job) VALUES ('$userID', '$userName', '$phone', '$contact', '$job')";
                             $req1 = mysqli_query($conn, $sql1);
@@ -52,6 +52,9 @@
                     }
                 }
         }
+    }
+    else {
+        echo json_encode(["status"=>false, "error"=>"validLevel", "message"=>"Bạn không có quyền với tài khoản này"]);
     }
 
 ?>

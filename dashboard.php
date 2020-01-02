@@ -59,15 +59,15 @@ if (!isset($_SESSION['level'])) {
                         </a>
                         <ul class="nav collapse" id="component1">
                             <li class="nav-item nav-child">
-                                <a class="nav-link" href="/drl/points/add">
-                                    <span class="link-name-mini">LP</span>
-                                    <span class="link-name-normal nav-item-title">List Posts</span>
-                                </a>
-                            </li>
-                            <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=newPost">
                                     <span class="link-name-mini">AP</span>
                                     <span class="link-name-normal nav-item-title">Add Posts</span>
+                                </a>
+                            </li>
+                            <li class="nav-item nav-child">
+                                <a class="nav-link" href="dashboard.php?category=newAccount">
+                                    <span class="link-name-mini">NA</span>
+                                    <span class="link-name-normal nav-item-title">New Account</span>
                                 </a>
                             </li>
                         </ul>
@@ -78,12 +78,6 @@ if (!isset($_SESSION['level'])) {
                             <span class="nav-item-title">USERS<i class="fas fa-caret-down"></i></span>
                         </a>
                         <ul class="nav collapse" id="component2">
-                            <li class="nav-item nav-child">
-                                <a class="nav-link" href="dashboard.php?category=newAccount">
-                                    <span class="link-name-mini">NA</span>
-                                    <span class="link-name-normal nav-item-title">New Account</span>
-                                </a>
-                            </li>
                             <li class="nav-item nav-child">
                                 <a class="nav-link" href="dashboard.php?category=manageUser">
                                     <span class="link-name-mini">MU</span>
