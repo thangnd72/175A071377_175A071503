@@ -51,7 +51,7 @@
                                             if (isset($_SESSION['level']) == 1 || isset($_SESSION['level']) == 2) {
                                                 echo "dashboard.php";
                                             }
-                                        ?>" class="dropdown-item" style="font-size: 1.2rem; color: black">My Account</a>
+                                        ?>" class="dropdown-item" style="font-size: 1.2rem; color: black">Change Password</a>
                                         <a href="layout/logout.php"class="dropdown-item" style="font-size: 1.2rem; color: black">Log Out</a>
                                     </div>
                                 </div>

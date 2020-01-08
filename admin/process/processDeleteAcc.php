@@ -5,17 +5,17 @@
         if(!$conn) {
             die("Connect failed");
         } else {
-            $userID = trim($_POST["userID"]);
-            if($_SESSION['userID'] != $userID) {
-                $sql= "DELETE FROM Users WHERE userID like '$userID'";
+            $accID = trim($_POST["accID"]);
+            if($_SESSION['accID'] != $accID) {
+                $sql= "DELETE FROM Account WHERE accID like '$accID'";
                 $result = mysqli_query($conn, $sql);
                 if($result) {
-                    echo json_encode(["status"=>true, "sql" => $sql, "user"=>$userID]);
+                    echo json_encode(["status"=>true, "sql" => $sql, "account"=>$accID]);
                 } else {
                     echo json_encode(["status"=>false, "message" => "SQL FAILED"]);
                 }
             } else {
-                echo json_encode(["status"=>false, "message" => "Không thể xoá người dùng này!"]);
+                echo json_encode(["status"=>false, "message" => "Không thể xoá tài khoản này!"]);
             }
         }
     } else {

@@ -14,7 +14,7 @@
                             <div class="form-group">
                                 <label>User Name</label>
                                 <input type="text" class="form-control"  id="userNameEdit" />
-                                <div class="invalid-feedback" style="font-size: 12px">Name Person is required.</div>
+                                <div class="invalid-feedback" style="font-size: 12px">Name User is required.</div>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">

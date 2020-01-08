@@ -36,9 +36,9 @@
                             <td><?= $rowUser['contact']; ?></td>
                             <td><?= $rowUser['job']; ?></td>
                             <td class="d-flex justify-content-end">
-                                <a href="#"><button type="button" class="btn btn-outline-secondary mr-2"><i class="fas fa-info"></i></button></a>
-                                <a href="#"><button type="button" class="btn btn-outline-info mr-2" data-toggle="modal" data-target="#editUser" data-user="<?=$rowUser['userID'];?>" id="editUserBtn" ><i class="fas fa-edit"></i></button></a>
-                                <a href="#"><button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete" data-user="<?=$rowUser['userID'];?>" id ="deleteUserBtn"><i class="fas fa-trash-alt"></i></button></a>
+                                <button type="button" class="btn btn-outline-secondary mr-2"><i class="fas fa-info"></i></button>
+                                <button type="button" class="btn btn-outline-info mr-2" data-toggle="modal" data-target="#editUser" data-user="<?=$rowUser['userID'];?>" id="editUserBtn" ><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete" data-user="<?=$rowUser['userID'];?>" id ="deleteUserBtn"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                         <?php } ?>

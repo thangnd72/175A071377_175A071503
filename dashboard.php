@@ -4,20 +4,14 @@ session_start();
 if (!isset($_SESSION['level'])) {
     header('Location: index.php');
 }
-// } else if(($_SESSION['level'] === 3)) {
-//         header('Location: members.php');
-//         }
 ?>
 <!Doctype html>
 <html lang="en">
 
 <head>
     <title>Dashboard</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="admin/style.css">
@@ -84,10 +78,16 @@ if (!isset($_SESSION['level'])) {
                                     <span class="link-name-normal nav-item-title">Manager Users</span>
                                 </a>
                             </li>
+                            <li class="nav-item nav-child">
+                                <a class="nav-link" href="dashboard.php?category=manageAcc">
+                                    <span class="link-name-mini">MA</span>
+                                    <span class="link-name-normal nav-item-title">Manager Accounts</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/drl/faqs">
+                        <a class="nav-link" href="#">
                             <i class="nc-icon nc-bulb-63"></i>
                             <span class="nav-item-title">FAQs</span>
                         </a>
@@ -114,12 +114,6 @@ if (!isset($_SESSION['level'])) {
                                     <span><?= $row['firstName'] . ' ' . $row['lastName']; ?></span>
                                 </div>
                                 <ul class="nav users-dropdown" id="component3">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/drl/profile">
-                                            <i class="nc-icon nc-circle-09"></i>
-                                            <span class="link-name-normal">My Profile</span>
-                                        </a>
-                                    </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/drl/pwd">
                                             <i class="nc-icon nc-refresh-02"></i>
@@ -153,6 +147,9 @@ if (!isset($_SESSION['level'])) {
                     break;
                 case "manageUser":
                     include('admin/manageUser.php');
+                    break;
+                case "manageAcc":
+                    include('admin/manageAcc.php');
                     break;
                 default:
                     include('admin/home.php');

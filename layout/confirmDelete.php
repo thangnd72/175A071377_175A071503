@@ -9,8 +9,8 @@
             </div>
             <div class="modal-body">
                 <div class="mx-auto w-25 d-flex flex-row">
-                        <input id="yesDel" type="button" class="btn btn-danger w-50 mr-3" value="YES"/>
-                        <input  data-dismiss="modal" type="button" class="btn btn-light w-50" value="NO" />
+                    <input id="yesDel" type="button" class="btn btn-danger w-50 mr-3" value="YES"/>
+                    <input  data-dismiss="modal" type="button" class="btn btn-light w-50" value="NO" />
                 </div>
             </div>
         </div>
