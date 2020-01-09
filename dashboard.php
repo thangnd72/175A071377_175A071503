@@ -115,7 +115,7 @@ if (!isset($_SESSION['level'])) {
                                 </div>
                                 <ul class="nav users-dropdown" id="component3">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/drl/pwd">
+                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#changePass">
                                             <i class="nc-icon nc-refresh-02"></i>
                                             <span class="link-name-normal">Change Password</span>
                                         </a>
@@ -158,6 +158,7 @@ if (!isset($_SESSION['level'])) {
             ?>
         </div>
     </div>
+    <?php include('changePassword.php'); ?>
     <script>
         if ($("#contentPost").length) {
             CKEDITOR.replace('contentPost',
@@ -173,6 +174,7 @@ if (!isset($_SESSION['level'])) {
             });
         }
     </script>
+    <script src="js/changePass.js"></script>
     <script src="admin/assets/js/script.js"></script>
     <script src="admin/assets/js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
