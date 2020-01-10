@@ -87,6 +87,26 @@ if (!isset($_SESSION['level'])) {
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#component3">
+                            <i class="nc-icon nc-spaceship"></i>
+                            <span class="nav-item-title">TEACHERS<i class="fas fa-caret-down"></i></span>
+                        </a>
+                        <ul class="nav collapse" id="component3">
+                            <li class="nav-item nav-child">
+                                <a class="nav-link" href="dashboard.php?category=manageStudent">
+                                    <span class="link-name-mini">MS</span>
+                                    <span class="link-name-normal nav-item-title">Manager Students</span>
+                                </a>
+                            </li>
+                            <li class="nav-item nav-child">
+                                <a class="nav-link" href="dashboard.php?category=manageSubject">
+                                    <span class="link-name-mini">MSB</span>
+                                    <span class="link-name-normal nav-item-title">Manager Subjects</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="nc-icon nc-bulb-63"></i>
                             <span class="nav-item-title">FAQs</span>
@@ -151,6 +171,12 @@ if (!isset($_SESSION['level'])) {
                 case "manageAcc":
                     include('admin/manageAcc.php');
                     break;
+                case "manageStudent":
+                    include('layout/manageStudent.php');
+                    break;
+                case "manageSubject":
+                    include('layout/manageSubject.php');
+                    break;
                 default:
                     include('admin/home.php');
                     break;
@@ -174,6 +200,7 @@ if (!isset($_SESSION['level'])) {
             });
         }
     </script>
+    <script src="js/editSubject.js"></script>
     <script src="js/changePass.js"></script>
     <script src="admin/assets/js/script.js"></script>
     <script src="admin/assets/js/index.js"></script>

@@ -4,9 +4,6 @@ $(document).ready(function() {
         const oldPass = $("#oldPass").val();
         const newPass = $("#newPass").val();
         const cfnewPass = $("#cfnewPass").val();
-        console.log(oldPass.length);
-        console.log(newPass.length);
-        console.log(cfnewPass.length);
 
         if (!oldPass.length) {
             $("#oldPass").addClass("is-invalid");

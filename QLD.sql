@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 05:05 PM
+-- Generation Time: Jan 10, 2020 at 07:41 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.9
 
@@ -44,8 +44,12 @@ CREATE TABLE `Account` (
 --
 
 INSERT INTO `Account` (`accID`, `userID`, `firstName`, `lastName`, `email`, `password`, `level`) VALUES
-(8, 'Admin', 'Nguyễn', 'Thắng', 'nguyendinhthang99bn@gmail.com', '$2y$10$6/RWEl1iw4qh/0BaGkOW6.s991uO.t.VDv5GiPtdY82nljBZjYJ/W', 1),
-(9, 'GV01', 'Nguyễn', 'Huệ', 'gv01@gmail.com', '$2y$10$8H/fhhBtTFnKzv1tk6JnruJiExuAdcfnPo3yz8w8ZdIYclNFlYeVm', 2);
+(8, 'Admin', 'Nguyễn', 'Thắng', 'nguyendinhthang99bn@gmail.com', '$2y$10$q9AkgoDJWm7N2x7gCC/leuJYAPeevYo0sYxBIowsf1RbMyhmMsr1K', 1),
+(9, 'GV01', 'Giáo viên', '1', 'gv01@gmail.com', '$2y$10$fbSmn9w5xJnBOQH0MSygyO28OWP53nevVtNCUEpnjyBgkFRzw1IU6', 2),
+(34, 'SV03', 'Nguyễn Văn', 'Trường', 'test@gmail.com', '$2y$10$rAF2da.ojYVY3nEg4MQZ3.s5PfbYoODVCplJd5/7pbTxaMRihNHDG', 3),
+(35, 'GV02', 'Nguyễn', 'Thị Hà', 'gv02@gmail.com', '$2y$10$h/cKN5g87YOnYSnhCuvEqOPyHHgZx3/fm8aRsJZOg..dm5SM5UEn6', 2),
+(36, 'SV04', 'Demo', 'Demo', 'sv04@gmail.com', '$2y$10$kzNMeFLzME55bF8Tvc3yJuHEhDe.sWH2dO2lQ363QaB96R2GioCBW', 3),
+(37, 'GV03', 'giáo viên', '3', 'gv03@gmail.com', '$2y$10$7s3HZovoIqLC6BDlwZpoeOtD4yn8nAIHxBpIaIENbRGeaQEsmTzjS', 2);
 
 -- --------------------------------------------------------
 
@@ -59,6 +63,14 @@ CREATE TABLE `Classes` (
   `majorID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `Classes`
+--
+
+INSERT INTO `Classes` (`classID`, `className`, `majorID`) VALUES
+('L01', '59TH2', 'K01'),
+('L02', '59PM1', 'K01');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +82,13 @@ CREATE TABLE `Majors` (
   `majorName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `faculty` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `Majors`
+--
+
+INSERT INTO `Majors` (`majorID`, `majorName`, `faculty`) VALUES
+('K01', 'CNTT', 'CNTT');
 
 -- --------------------------------------------------------
 
@@ -84,6 +103,15 @@ CREATE TABLE `Marks` (
   `termID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `totalMark` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `Marks`
+--
+
+INSERT INTO `Marks` (`userID`, `classID`, `subjectID`, `termID`, `totalMark`) VALUES
+('SV04', 'L02', 'M04', 'HK1', 7.6),
+('SV03', 'L01', 'M02', 'HK1', 8.6),
+('SV03', 'L01', 'M01', 'HK2', 9.5);
 
 -- --------------------------------------------------------
 
@@ -134,6 +162,14 @@ CREATE TABLE `Students` (
   `classID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `Students`
+--
+
+INSERT INTO `Students` (`userID`, `CMT`, `gender`, `classID`) VALUES
+('SV03', 111111, 'Nam', 'L01'),
+('SV04', 123456, 'Nữ', 'L02');
+
 -- --------------------------------------------------------
 
 --
@@ -142,11 +178,22 @@ CREATE TABLE `Students` (
 
 CREATE TABLE `Subjects` (
   `subjectID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subjectName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `credits` int(11) NOT NULL,
   `processMark` float NOT NULL,
-  `testScore` float NOT NULL
+  `testScore` float NOT NULL,
+  `userID` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `Subjects`
+--
+
+INSERT INTO `Subjects` (`subjectID`, `subjectName`, `credits`, `processMark`, `testScore`, `userID`) VALUES
+('M01', 'Công nghệ web', 3, 0.3, 0.7, 'GV01'),
+('M02', 'Lập trình Java', 3, 0.4, 0.6, 'GV03'),
+('M03', 'Đồ hoạ kỹ thuật', 2, 0.5, 0.6, 'GV02'),
+('M04', 'Android', 3, 0.3, 0.7, 'GV01');
 
 -- --------------------------------------------------------
 
@@ -161,6 +208,14 @@ CREATE TABLE `Teachers` (
   `majorID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `Teachers`
+--
+
+INSERT INTO `Teachers` (`userID`, `classID`, `subjectID`, `majorID`) VALUES
+('GV01', 'L01', 'M01', 'K01'),
+('GV02', 'L02', 'M04', 'K01');
+
 -- --------------------------------------------------------
 
 --
@@ -171,8 +226,16 @@ CREATE TABLE `Terms` (
   `termID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `termName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `stage` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `yearSchool` datetime NOT NULL
+  `yearSchool` char(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `Terms`
+--
+
+INSERT INTO `Terms` (`termID`, `termName`, `stage`, `yearSchool`) VALUES
+('HK1', 'Học kỳ 1', 'Giai đoạn 1', '2019-2020'),
+('HK2', 'Học kỳ 2', 'Giai đoạn 1', '2019-2020');
 
 -- --------------------------------------------------------
 
@@ -182,10 +245,10 @@ CREATE TABLE `Terms` (
 
 CREATE TABLE `Users` (
   `userID` char(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `userName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` char(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+  `userName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -194,8 +257,11 @@ CREATE TABLE `Users` (
 
 INSERT INTO `Users` (`userID`, `userName`, `phone`, `contact`, `job`) VALUES
 ('Admin', 'Nguyễn Đình Thắng', '0975346755', 'thangnd72@wru.vn', 'admin'),
-('GV01', 'Giáo viên 1', '096745375', 'gv01@wru.vn', 'teacher'),
-('SV01', 'Sinh viên 1', '03357689', 'sv01@wru.vn', 'student');
+('GV01', 'Giáo viên 1', '12312', 'gv01@gmail.com', 'teacher'),
+('GV02', 'Nguyễn Hà', '23123213', 'gv02@gmail.com', 'teacher'),
+('GV03', 'giáo viên 3', '12321425', 'gv03@gmail.com', 'teacher'),
+('SV03', 'Nguyễn Văn Trường', '09772312', 'test@gmail.com', 'student'),
+('SV04', 'Demo Demo', '1213', 'sv04@gmail.com', 'student');
 
 --
 -- Indexes for dumped tables
@@ -250,7 +316,8 @@ ALTER TABLE `Students`
 -- Indexes for table `Subjects`
 --
 ALTER TABLE `Subjects`
-  ADD PRIMARY KEY (`subjectID`);
+  ADD PRIMARY KEY (`subjectID`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `Teachers`
@@ -281,13 +348,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Account`
 --
 ALTER TABLE `Account`
-  MODIFY `accID` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `accID` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `Posts`
 --
 ALTER TABLE `Posts`
-  MODIFY `idPost` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idPost` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -297,7 +364,7 @@ ALTER TABLE `Posts`
 -- Constraints for table `Account`
 --
 ALTER TABLE `Account`
-  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `Classes`
@@ -326,6 +393,12 @@ ALTER TABLE `Posts`
 ALTER TABLE `Students`
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `students_ibfk_2` FOREIGN KEY (`classID`) REFERENCES `classes` (`classID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `Subjects`
+--
+ALTER TABLE `Subjects`
+  ADD CONSTRAINT `subjects_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `Teachers`
